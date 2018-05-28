@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+set -x
+
+minikube start --network-plugin=cni --bootstrapper=localkube --memory=4096 --extra-config=apiserver.Authorization.Mode=RBAC --kubernetes-version v1.9.4
+# give k8s a moment to setup to avoid 'error: no matches for kind "ClusterRoleBinding" in version "rbac.authorization.k8s.io/v1beta1"'
+sleep 2
+kubectl create clusterrolebinding kube-system-default-binding-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default

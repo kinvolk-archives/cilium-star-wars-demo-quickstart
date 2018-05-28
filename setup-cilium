@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+set -x
+
+kubectl create -f https://raw.githubusercontent.com/cilium/cilium/doc-1.0/examples/kubernetes/addons/etcd/standalone-etcd.yaml
+kubectl create -f https://raw.githubusercontent.com/cilium/cilium/doc-1.0/examples/kubernetes/1.9/cilium.yaml
