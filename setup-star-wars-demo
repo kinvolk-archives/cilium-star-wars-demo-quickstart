@@ -4,6 +4,3 @@ set -euo pipefail
 set -x
 
 kubectl create -f https://raw.githubusercontent.com/cilium/cilium/doc-1.0/examples/minikube/http-sw-app.yaml
-
-kubectl create -f https://raw.githubusercontent.com/cilium/cilium/doc-1.0/examples/minikube/sw_l3_l4_policy.yaml
-kubectl apply -f https://raw.githubusercontent.com/cilium/cilium/doc-1.0/examples/minikube/sw_l3_l4_l7_policy.yaml
