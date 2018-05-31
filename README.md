@@ -89,6 +89,12 @@ kubectl apply -f \
 
 And try to make the deathstar explode again.
 
+## Open a shell in the Cilium container for CLI access
+
+```
+kubectl exec -n kube-system -ti $(kubectl get pod -n kube-system -l k8s-app=cilium -o jsonpath='{.items[0].metadata.name}') -- bash
+```
+
 ## Source
 
 http://docs.cilium.io/en/doc-1.0/gettingstarted/minikube/
