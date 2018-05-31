@@ -1,6 +1,6 @@
 # Cilium Star Wars Demo Quickstart on Kubernetes 1.9
 
-Start a new minikube cluster:
+### Setting up a Minikube cluster:
 
 ```
 minikube start \
@@ -22,6 +22,8 @@ Make sure all pods are running:
 kubectl get pods --all-namespaces
 ```
 
+### Setting up Cilium
+
 Install etcd for cilium
 
 ```
@@ -42,7 +44,7 @@ Again, make sure all pods are running:
 kubectl get pods --all-namespaces
 ```
 
-Deploy the demo app:
+### Deploying the demo app
 
 ```
 kubectl create -f \
@@ -60,6 +62,8 @@ kubectl exec $(kubectl get pod -l class=tiefighter -o jsonpath='{.items[0].metad
 kubectl exec $(kubectl get pod -l class=xwing -o jsonpath='{.items[0].metadata.name}') \
   -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
 ```
+
+### Deploying policies
 
 Deploy demo layer 3/4 policy:
 
